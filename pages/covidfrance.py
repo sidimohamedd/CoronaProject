@@ -23,6 +23,8 @@ dfr = covid[covid.groupby('maille_nom').date.transform('max') == covid['date']]
 dfr = dfr[dfr.granularite != "collectivite-outremer"]
 dfr = dfr[dfr.granularite != "monde"]
 dfr = dfr[dfr.granularite != "departement"]
+dfr = dfr[dfr.granularite != "pays"]
+
 
 
 region_options = []
