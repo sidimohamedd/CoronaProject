@@ -26,7 +26,6 @@ dfr = dfr[dfr.granularite != "departement"]
 dfr = dfr[dfr.granularite != "pays"]
 
 
-
 region_options = []
 for region in dfr.groupby(['maille_nom']).sum().sort_values(ascending=False, by='deces').index:
     region_options.append({'label':str(region),'value':region})
@@ -133,38 +132,7 @@ france = html.Div([
                 ),
 
         html.Div([
-            html.Div(
-                        [
 
-                            html.Div(
-                                [
-                                    html.H5(
-                                        "Cumulative Cases", style={'margin-top': '20px',
-                                                                    'font-size': '23px',
-                                                                    'font-weight': '700',
-                                                                    'text-align': 'center',
-                                                                    'color': 'rgb(49, 69, 106)',
-                                                                    'padding-top': '15px',
-                                                                    'margin-bottom': '20px'
-                                                                    }
-                                    ),
-                                ]
-                            ),
-                            html.Div(
-                                [dcc.Graph(id='graph',
-                                style={
-                                    'height': '400px'
-                                    })],
-                                id="country_GraphContainer",
-                                className="pretty_container",
-                                style={
-                                    'background-color': '#1E88E5',
-                                    'padding': '5px',
-                                    }
-                            )
-                        ],
-                        className="six columns",
-                    ),
             html.Div(
                         [
 
@@ -172,7 +140,7 @@ france = html.Div([
                             html.Div(
                                 [
                                     html.H5(
-                                        "Deaths", style={'margin-top': '20px',
+                                        "Cumulative Deaths", style={'margin-top': '20px',
                                                                     'font-size': '23px',
                                                                     'font-weight': '700',
                                                                     'text-align': 'center',
@@ -197,7 +165,7 @@ france = html.Div([
                                     }
                             )
                         ],
-                        className="six columns",
+                        className="twelve columns",
                     ),
 
 
@@ -384,7 +352,7 @@ france = html.Div([
 
         ])
 
-
+"""
 @app.callback(Output('graph', 'figure'),
               [Input('country-picker', 'value')])
 def update_figure(selected_region):
@@ -437,6 +405,7 @@ def update_figure(selected_region):
         )
     }
 
+"""
 #Confirmed graph
 
 @app.callback(Output('country_graph_conf', 'figure'),
