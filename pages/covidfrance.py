@@ -352,60 +352,7 @@ france = html.Div([
 
         ])
 
-"""
-@app.callback(Output('graph', 'figure'),
-              [Input('country-picker', 'value')])
-def update_figure(selected_region):
-    filtered_df_conf = covid[covid['maille_nom'] == selected_region]
-    filtered_df_conf['date'] =pd.to_datetime(filtered_df_conf.date)
-    filtered_df_conf = filtered_df_conf.groupby(['date']).sum().sort_values(ascending=True, by='date')
 
-    filtered_df_recov = covid[covid['maille_nom'] == selected_region]
-    filtered_df_recov['date'] =pd.to_datetime(filtered_df_recov.date)
-    filtered_df_recov = filtered_df_recov.groupby(['date']).sum().sort_values(ascending=True, by='date')
-
-    filtered_df_death = covid[covid['maille_nom'] == selected_region]
-    filtered_df_death['date'] =pd.to_datetime(filtered_df_death.date)
-    filtered_df_death = filtered_df_death.groupby(['date']).sum().sort_values(ascending=True, by='date')
-
-
-    trace1 = go.Scatter(
-        x = filtered_df_conf.index,
-        y = filtered_df_conf['hospitalises'],
-        mode = 'lines',
-        name = 'Hospitalizations',
-        marker=dict(color='orange')
-    )
-
-    trace2 = go.Scatter(
-        x = filtered_df_recov.index,
-        y = filtered_df_recov['deces'],
-        mode = 'lines',
-        name = 'Deaths',
-        marker=dict(color='red')
-    )
-
-    trace3 = go.Scatter(
-        x = filtered_df_death.index,
-        y = filtered_df_death['reanimation'],
-        mode = 'lines',
-        name = 'Reanimations',
-        marker=dict(color='purple')
-    )
-
-    traces = [trace1, trace2, trace3]
-
-
-    return {
-        'data': traces,
-        'layout': go.Layout(
-            xaxis={'showgrid': False, 'fixedrange':True},
-            yaxis={'title': 'No. of People', 'showgrid': False, 'fixedrange':True},
-            hovermode='closest'
-        )
-    }
-
-"""
 #Confirmed graph
 
 @app.callback(Output('country_graph_conf', 'figure'),
