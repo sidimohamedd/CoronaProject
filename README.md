@@ -7,4 +7,3 @@ We have developed a dashboard that is automatically fed by a daily data flow fro
 - Modeling: for easy and understandable visualization and configuration of the SEAIRD model
 The development of the dashboard is done in the form of a small dynamic, responsive and multi-page dashboard web application with Dash (Python open source framework).
 
-To launch the application you download the folder and run the index.py file
